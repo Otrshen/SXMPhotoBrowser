@@ -1,0 +1,29 @@
+//
+//  SXMPhotoView.h
+//  SXMPhotoBrowser
+//
+//  Created by syn on 2017/12/11.
+//  Copyright © 2017年 sxm. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+
+@class SXMPhoto, SXMPhotoView;
+
+@protocol SXMPhotoViewDelegate <NSObject>
+
+- (void)photoViewSingleTap:(SXMPhotoView *)photoView;
+
+@end
+
+
+@interface SXMPhotoView : UIScrollView
+
+@property (nonatomic, weak) id<SXMPhotoViewDelegate> photoViewDelegate;
+
+- (void)setPhoto:(SXMPhoto *)photo;
+
+- (void)eliminateScale;
+
+@end
