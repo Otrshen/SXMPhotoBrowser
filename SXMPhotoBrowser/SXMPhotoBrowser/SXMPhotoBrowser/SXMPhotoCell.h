@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SXMPhotoView.h"
 
-@class SXMPhoto, SXMPhotoView;
+@class SXMPhoto;
 
-@interface SXMPhotoCell : UICollectionViewCell
+@interface SXMPhotoCell : UICollectionViewCell <SXMPhotoViewDelegate>
 
 @property (nonatomic, strong) SXMPhoto *photo;
 

@@ -7,11 +7,8 @@
 //
 
 #import "SXMPhotoCell.h"
-#import "SXMPhotoView.h"
 
 @interface SXMPhotoCell ()
-
-//@property (nonatomic, strong) SXMPhotoView *photoView;
 
 @end
 
@@ -27,7 +24,17 @@
 
 - (void)pm_setupUI
 {
+    self.photoView.photoViewDelegate = self;
+}
+
+- (void)photoViewSingleTap:(SXMPhotoView *)photoView
+{
     
+}
+
+- (void)photoViewTouchMoveChangeAlpha:(CGFloat)alpha
+{
+    self.superview.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:alpha];
 }
 
 - (void)setPhoto:(SXMPhoto *)photo

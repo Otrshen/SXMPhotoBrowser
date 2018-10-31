@@ -13,9 +13,6 @@
 
 static NSString *const cellId = @"SXMPhotoCell";
 
-#define kScreenWidth [UIScreen mainScreen].bounds.size.width
-#define kScreenHeight [UIScreen mainScreen].bounds.size.height
-
 @interface SXMPhotoBrowser () <UICollectionViewDelegate, UICollectionViewDataSource, UIScrollViewDelegate>
 
 @end
@@ -26,22 +23,21 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (instancetype)init
 {
-    self.backgroundColor = [UIColor blackColor];
-    
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = 0;
     layout.minimumInteritemSpacing = 0;
-    layout.itemSize = CGSizeMake(kScreenWidth, kScreenHeight);
+    layout.itemSize = CGSizeMake(kSXMScreenWidth, kSXMScreenHeight);
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     self.collectionViewLayout = layout;
     
     [self pm_setupUI];
     
-    return [super initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight) collectionViewLayout:layout];
+    return [super initWithFrame:CGRectMake(0, 0, kSXMScreenWidth, kSXMScreenHeight) collectionViewLayout:layout];
 }
 
 - (void)show
 {
+    self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:1.0];
     [[UIApplication sharedApplication].keyWindow addSubview:self];
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.currentPhotoIndex inSection:0];
@@ -50,6 +46,7 @@ static NSString * const reuseIdentifier = @"Cell";
 
 - (void)pm_setupUI
 {
+    NSLog(@"myself:%@", self);
     self.delegate = self;
     self.dataSource = self;
     self.pagingEnabled = YES;

@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-
 @class SXMPhoto, SXMPhotoView;
 
 @protocol SXMPhotoViewDelegate <NSObject>
 
 - (void)photoViewSingleTap:(SXMPhotoView *)photoView;
 
+- (void)photoViewTouchMoveChangeAlpha:(CGFloat)alpha;
+
 @end
 
 
-@interface SXMPhotoView : UIScrollView
+@interface SXMPhotoView : UIView
 
 @property (nonatomic, weak) id<SXMPhotoViewDelegate> photoViewDelegate;
 

@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#define kSXMScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kSXMScreenHeight [UIScreen mainScreen].bounds.size.height
+
 @interface SXMPhoto : NSObject
 
 @property (nonatomic, strong) UIImage *image;
